@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Volkhov:ital@1&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,900|Roboto&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> 
+        <script src="https://kit.fontawesome.com/48e95db22f.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/48e95db22f.js" crossorigin="anonymous"></script>
+        
+        <title>
+            Edyoda Stories Demo 
+        </title>
+        <link href="{% static 'blog/css/card-style.css' %}" rel="stylesheet">
+        {% block extra_head %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <div id="topbar">
+              <div id="topbar-left">
+                <div id="edyoda-stories-logo">
+                    <a href="/stories" id="edyoda-logo">EDYODA</a>
+                    <p id="stories">Stories</p>
+                </div>
+                <div class="explore-categories">
+                    Explore Categories
+                    <span>
+                        <i class="fas fa-caret-down"></i>
+                    </span>
+                    <div class="dropdown-content">
+                        {% for cat in category %}
+                            <a href="{% url 'category' cat.slug %}">{{cat.name}}</a>
+                        {% endfor %}  
+                    </div>
+                </div>
+              </div>
+              <div id="topbar-right">
+                  {% if user.is_authenticated%}
+                  <a href="{% url 'new-post' %}" class="toptxt" style="margin-right: 60px; color:white">|New Post</a>
+                  <img id="user-img-wrap" src="{{user.image.url}}" alt="" width="25px" height="25px">
+                    <span><b><a href="{{user.get_absolute_url}}" class="toptxt" style="color: whitesmoke;">welcome, {{user.get_username}}</a></b></span>
+                    &ensp;<a href="{% url 'logout' %}" class="toptxt" style="margin-right: 30px; color:white">|Logout</a>
+                    <a href="{% url 'contact-us' %}" class="toptxt" style="margin-right: 30px; color:white">|ContactUs</a>
+                  {% else %}
+                  <img id="user-img-wrap" src="https://img.icons8.com/plasticine/2x/user.png" alt="" width="25px" height="25px">
+                    <span><b style="font-family: 'Volkhov', serif; color: white;">New,user</b></span>
+                    <a href="{% url 'signup' %}" class="toptxt" style="margin-right: 30px; color:white">|Sign Up</a>&ensp;
+                    <a href="{% url 'login' %}" class="toptxt" style="margin-right: 30px; color:white">|Login</a>
+                    <a href="{% url 'contact-us' %}" class="toptxt" style="margin-right: 30px; color:white">|ContactUs</a>  
+                  {% endif %} 
+              </div>
+            </div>
+            </header>
+
+                {%block content %}
+                {% endblock %}
+                    
+            </div>
+          </div>
+          <footer>
+              <div class="footer-section">
+
+              </div>
+          </footer>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    for later project background image url
+    https://edyoda.s3.ap-south-1.amazonaws.com/public/landing-background.png
+-->

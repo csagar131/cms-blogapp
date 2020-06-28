@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link href="{% static 'blog/css/details.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="giant-card">
+    <div class=giant-card-item>
+    <img src="{{post.images.url}}" alt="aiimage" id="card-image" width="760px" height="437px"/>
+        <div class="card-discription-heading">
+            <h2><span class="heading">{{post.title}}</span></h2>
+                <h4 style="padding-top:1px; margin: 0;"><span class="author"><span style="color:#0096ff; font-family: 'Raleway',sans-serif;">{{post.author}}</span>  |<span style="font-family: 'Roboto';font-size: 15px;font-style: normal;">{{post.date}}</span></span></h4>
+                <p class="para">
+                    {{post.content| safe}} 
+                </p>    
+        </div>
+        <div class="card-bottom-section">
+            <div class="card-bottom-section-content">
+                <div id="user-image-wrapper">
+                    <img src="{{post.author.image.url}}" width="128px" height="128px" style="margin-right: 32px; display: inline;"/>
+                </div>    
+                <div id="card-bottom-section-content-text">
+                    <h4 style="padding-top:1px; margin: 0;"><span class="author"><span style="color:#0096ff; font-family: 'Raleway',sans-serif; font-size: 16px;"> {{post.author.username}}
+                    </span></span></h4>
+                    <p class="para" style="margin-top:4.5px;">
+                        {{post.author.bio}}
+                    </p>
+                    </div>
+            </div>
+            <div class="card-bottom-button-section">
+                <a href="{% url 'category' post.category.slug%}"><button class="btn">{{post.category.name}}</button></a>
+                <a href="{% url 'update-post' post.slug %}"><button class="btn">Update Post</button></a>
+                <a href="{% url 'delete-post' post.slug %}"><button class="btn">Delete Post</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

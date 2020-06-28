@@ -1,0 +1,66 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block extra_head %}
+{{ form.media }}
+<link href="{% static 'blog/css/post-update.css' %}" rel="stylesheet">
+<script type="text/javascript">
+tinymce.init({
+   selector: 'textarea',
+//    content_css : "blog/css/card-style.css,blog/css/post-update.css",
+   content_style: 'html { background-color : white; color:black; }'
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="login">
+    <h1>Edit Post</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-ele">
+                <p class="label-color">{{form.title.label_tag}}</p>
+                <p style="width: 500px;">{{form.title}}</p>
+            </div>
+            <div id="content-sec">
+                <p class="label-color">{{form.content.label_tag}}</p>
+                <p>{{form.content | safe}}</p>
+            </div>
+            <div class="form-ele-flex">
+                <div>
+                    <p class="label-color">{{form.date.label_tag}}</p>
+                    <p>{{form.date}}</p>
+                </div>
+                <div>
+                    <p class="label-color">{{form.author.label_tag}}</p>
+                    <p>{{form.author}}</p>
+                </div>
+
+            </div>
+            <div id="below-content">
+            <div class="form-ele-flex">
+                <div>
+                    <p class="label-color">{{form.status.label_tag}}</p>
+                    <p>{{form.status}}</p>
+                </div>
+                <div>
+                    <p class="label-color">{{form.category.label_tag}}</p>
+                    <p>{{form.category}}</p>
+                </div>
+
+            </div>
+
+            <div class="form-ele">
+                <p class="label-color">{{form.images.label_tag}}</p>
+                <p>{{form.images}}</p>
+            </div>
+            <br/>
+            <br/>
+            <a><button type="submit" id="update-post-btn">Click Here</button></a>
+            <br/>
+        </div>
+        </form>
+        <br/>
+        <br/>
+</div>
+
+{% endblock %}

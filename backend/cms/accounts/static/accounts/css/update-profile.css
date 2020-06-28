@@ -1,0 +1,129 @@
+body { 
+    width: 100%;
+    height:100%;
+    font-family: 'Open Sans', sans-serif;
+    background-repeat: no-repeat;
+    background: #F2F6FF;
+}
+
+#topbar{
+    visibility: visible;
+}
+
+h1{
+    color: aqua;
+}
+
+.helptext{
+    display: none;
+}
+
+ul{
+    display: none;
+}
+
+.label-color{
+    color:black;
+}
+
+.login { 
+    margin: 50px auto;
+    width:1000px;
+    height:100%;
+    margin-top: 100px;
+}
+.login h1 { color: black; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+.login img{
+    border: 1px solid black;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 460px;
+    margin-top: 30px;
+}
+
+
+.two-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 50px;
+
+}
+
+.btn-flex{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login p{
+    display: inline;
+}
+
+
+.is_author{
+    display: inline;
+}
+
+.btn-down{
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-left: 420px;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    outline: none;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 4px;
+}
+
+
+input { 
+    margin-bottom: 3px; 
+    background-color: white;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 13px;
+    color: black;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 4px;
+}
+
+textarea { 
+    width: 100%; 
+    margin-bottom: 3px; 
+    background-color: white;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 13px;
+    color: black;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 4px;
+}
+
+.btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+a button { 
+    width: 100%;
+    text-align: center;  
+    border: 2px solid #34495e;
+    color: #34495e;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}

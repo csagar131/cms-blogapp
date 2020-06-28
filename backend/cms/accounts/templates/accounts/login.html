@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link href="{% static 'accounts/css/logsignin.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<div class="login">
+    <h1>Login</h1>
+    <br/>
+    <br/>
+    <br/>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{form.errors}}</p>
+            <p style="color:#000000" class="label-color">{{form.username.label_tag}}</p>
+            <p>{{form.username}}<p>
+            <p style="color:#000000" class="label-color">{{form.password.label_tag}}</p>
+            <p>{{form.password}}<p>
+            <a href="{% url 'password_reset' %}" style="color: black;"> &emsp;&emsp; &emsp;&emsp; &emsp;Forgot Password</a>
+            <br/>
+            <br/>
+           <a><button type="submit">Login</button></a>
+        </form>
+</div>
+
+{% endblock %}
